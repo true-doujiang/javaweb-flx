@@ -20,9 +20,13 @@ import java.util.List;
 public class Demo3 {
 
 
-    public static void main(String[] args) throws SQLException {
+
+    public static void main(String[] args) {
 
     }
+
+
+
 
     @Test
     public void insert() {
