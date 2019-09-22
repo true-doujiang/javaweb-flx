@@ -1,7 +1,148 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<web-app version="2.5"-->
+<!--xmlns="http://java.sun.com/xml/ns/javaee"-->
+<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee -->
+<!--http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">-->
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>ResponseDemo1</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseDemo2</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseDemo3</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseDemo4</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo4</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseDemo5</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo5</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseDemo6</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo6</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseDemo7</servlet-name>
+        <servlet-class>cn.itcast.response.ResponseDemo7</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>RequestDemo1</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo1</servlet-name>
+        <url-pattern>/servlet/requestDemo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RequestDemo8</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo8</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo8</servlet-name>
+        <url-pattern>/servlet/requestDemo8</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RequestDemo9</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo9</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo9</servlet-name>
+        <url-pattern>/servlet/requestDemo9</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo1</servlet-name>
+        <servlet-class>cn.itcast.url.ServletDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/servlet/servletDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo3</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo3</servlet-name>
+        <url-pattern>/servlet/requestDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo4</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo4</servlet-name>
+        <url-pattern>/servlet/requestDemo4</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo5</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo5</servlet-name>
+        <url-pattern>/servlet/requestDemo5</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RequestDemo2</servlet-name>
+        <servlet-class>cn.itcast.request.RequestDemo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo2</servlet-name>
+        <url-pattern>/servlet/requestDemo2</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>ResponseDemo1</servlet-name>
+        <url-pattern>/servlet/responseDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo2</servlet-name>
+        <url-pattern>/servlet/responseDemo2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo3</servlet-name>
+        <url-pattern>/servlet/responseDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo5</servlet-name>
+        <url-pattern>/servlet/responseDemo5</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo6</servlet-name>
+        <url-pattern>/servlet/responseDemo6</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo7</servlet-name>
+        <url-pattern>/servlet/responseDemo7</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo4</servlet-name>
+        <url-pattern>/servlet/responseDemo4</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+
 </web-app>

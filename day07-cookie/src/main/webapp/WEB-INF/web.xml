@@ -1,7 +1,154 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<web-app version="2.5"-->
+<!--xmlns="http://java.sun.com/xml/ns/javaee"-->
+<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee -->
+<!--http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">-->
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>CookieDemo1</servlet-name>
+        <servlet-class>cn.itcast.cookie.CookieDemo1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CookieDemo2</servlet-name>
+        <servlet-class>cn.itcast.cookie.CookieDemo2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CookieDemo3</servlet-name>
+        <servlet-class>cn.itcast.cookie.CookieDemo3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CookieDemo4</servlet-name>
+        <servlet-class>cn.itcast.cookie.CookieDemo4</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessionDemo1</servlet-name>
+        <servlet-class>cn.itcast.session.SessionDemo1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessionDemo2</servlet-name>
+        <servlet-class>cn.itcast.session.SessionDemo2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>cn.itcast.shopping.IndexServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuyServlet</servlet-name>
+        <servlet-class>cn.itcast.shopping.BuyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListCartServlet</servlet-name>
+        <servlet-class>cn.itcast.shopping.ListCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>cn.itcast.login.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>cn.itcast.login.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormServlet</servlet-name>
+        <servlet-class>cn.itcast.form.FormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoFormServlet</servlet-name>
+        <servlet-class>cn.itcast.form.DoFormServlet</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>cn.itcast.login2.ImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet2</servlet-name>
+        <servlet-class>cn.itcast.login2.LoginServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <servlet-class>cn.itcast.session.WelcomeServlet</servlet-class>
+    </servlet>
+
+
+    <!-- 以下为映射路径 -->
+
+
+    <servlet-mapping>
+        <servlet-name>CookieDemo1</servlet-name>
+        <url-pattern>/servlet/CookieDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CookieDemo2</servlet-name>
+        <url-pattern>/servlet/CookieDemo2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CookieDemo3</servlet-name>
+        <url-pattern>/servlet/CookieDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CookieDemo4</servlet-name>
+        <url-pattern>/servlet/CookieDemo4</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessionDemo1</servlet-name>
+        <url-pattern>/servlet/SessionDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessionDemo2</servlet-name>
+        <url-pattern>/servlet/SessionDemo2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/servlet/IndexServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuyServlet</servlet-name>
+        <url-pattern>/servlet/BuyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListCartServlet</servlet-name>
+        <url-pattern>/servlet/ListCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/servlet/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/servlet/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormServlet</servlet-name>
+        <url-pattern>/servlet/FormServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoFormServlet</servlet-name>
+        <url-pattern>/servlet/DoFormServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/servlet/ImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet2</servlet-name>
+        <url-pattern>/servlet/LoginServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <url-pattern>/servlet/WelcomeServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

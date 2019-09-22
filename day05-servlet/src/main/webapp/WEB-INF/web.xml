@@ -1,7 +1,124 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<web-app version="2.5"-->
+<!--xmlns="http://java.sun.com/xml/ns/javaee"-->
+<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee -->
+<!--http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">-->
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
+
+
+    <context-param>
+        <param-name>webdata</param-name>
+        <param-value>为整个web应用配置参数，自动封装的ServletContext对象中了</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>ServletDemo1</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServlettDemo2</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo2</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletDemo3</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo3</servlet-class>
+        <!--<load-on-startup>3</load-on-startup> -->
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletDemo4</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo4</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletDemo5</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo5</servlet-class>
+        <init-param>
+            <param-name>data1</param-name>
+            <param-value>xxxx</param-value>
+        </init-param>
+        <init-param>
+            <param-name>data2</param-name>
+            <param-value>yyyy</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletDemo6</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo6</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletDemo8</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo8</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletDemo10</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo10</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletDemo11</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo11</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletDemo12</servlet-name>
+        <servlet-class>cn.itcast.ServletDemo12</servlet-class>
+    </servlet>
+
+
+    <!-- 以下为映射路径 -->
+
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/servlet/ServeltDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServlettDemo2</servlet-name>
+        <url-pattern>/servlet/ServeltDemo2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo3</servlet-name>
+        <url-pattern>/servlet/ServletDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo4</servlet-name>
+        <url-pattern>/servlet/ServletDemo4</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo5</servlet-name>
+        <url-pattern>/servlet/ServletDemo5</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo6</servlet-name>
+        <url-pattern>/servlet/ServletDemo6</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo8</servlet-name>
+        <url-pattern>/servlet/ServletDemo8</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo10</servlet-name>
+        <url-pattern>/servlet/ServletDemo10</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo11</servlet-name>
+        <url-pattern>/servlet/ServletDemo11</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo12</servlet-name>
+        <url-pattern>/servlet/ServletDemo12</url-pattern>
+    </servlet-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
 </web-app>

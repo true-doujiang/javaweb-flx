@@ -13,7 +13,7 @@
 
     <servlet>
         <servlet-name>ServletDemo1</servlet-name>
-        <servlet-class>com.yhh.ServletDemo1</servlet-class>
+        <servlet-class>com.yhh.servlet.ServletDemo1</servlet-class>
     </servlet>
 
     <servlet-mapping>

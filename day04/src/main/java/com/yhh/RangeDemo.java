@@ -14,7 +14,7 @@ public class RangeDemo {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        URL url = new URL("http://localhost:8080/readme.txt");
+        URL url = new URL("http://localhost:8080/servlet/ServletDemo1");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         //测试Range头
         connection.setRequestProperty("Range", "bytes=10-");
