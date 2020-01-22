@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+    <description>A tag library exercising SimpleTag handlers.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>SimpleTagLibrary</short-name>
+    <uri>/simpleitcast</uri>
+    
+    <tag>
+        <name>demo</name>  <!-- 为标签处理器类配一个标签名 -->
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo</tag-class>
+		<body-content>scriptless</body-content>
+		<!-- JSP换成scriptless（无脚本）   标签体为空用empty-->
+    </tag>
+    
+    <tag>
+        <name>demo1</name>  
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo1</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+    
+    
+    <tag>
+        <name>demo2</name>  
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo2</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+    
+     <tag>
+        <name>demo3</name>  
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo3</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+    
+    
+    <tag>
+        <name>demo4</name>  
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo4</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+    
+    
+     <tag>
+        <name>demo5</name>  
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo5</tag-class>
+		<body-content>scriptless</body-content>
+
+		<attribute>
+			<name>count</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>  <!-- 指示属性的值是否可以为一个表达式 -->
+		</attribute>
+    </tag>
+    
+    
+    <tag>
+        <name>demo6</name>  
+		<tag-class>cn.itcast.web.simpletag.SimpleTagDemo6</tag-class>
+		<body-content>scriptless</body-content>
+		
+		<attribute>
+			<name>date</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>  
+		</attribute>
+    </tag>
+    
+   
+    
+    
+</taglib>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>cn.itcast.web.contorller.UploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadServlet2</servlet-name>
+        <servlet-class>cn.itcast.web.contorller.UploadServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadServlet3</servlet-name>
+        <servlet-class>cn.itcast.web.contorller.UploadServlet3</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/servlet/UploadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadServlet2</servlet-name>
+        <url-pattern>/servlet/UploadServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadServlet3</servlet-name>
+        <url-pattern>/servlet/UploadServlet3</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>upload.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

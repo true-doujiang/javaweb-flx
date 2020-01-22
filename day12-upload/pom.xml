@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yhh.javaweb</groupId>
-    <artifactId>day11-jstl</artifactId>
+    <artifactId>day12-upload</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,6 +45,20 @@
             <version>1.16.10</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -54,7 +67,7 @@
     </dependencies>
 
     <build>
-        <finalName>day11-jstl</finalName>
+        <finalName>day12-el</finalName>
 
         <plugins>
             <plugin>

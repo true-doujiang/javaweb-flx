@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+    <description>A tag library exercising SimpleTag handlers.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>SimpleTagLibrary</short-name>
+    <uri>/itcast</uri>
+    
+    
+    <tag>
+        <name>referer</name>  <!-- 为标签处理器类配一个标签名 -->
+		<tag-class>cn.itcast.web.tag.RefererTag</tag-class>
+		<body-content>empty</body-content>   <!-- 对应简单传统标签的empty -->
+			
+		<attribute>
+			<name>site</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>page</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+    </tag>
+    
+    	
+    <tag>
+    	<name>if</name>  
+		<tag-class>cn.itcast.web.tag.IfTag</tag-class>
+		<body-content>scriptless</body-content>   <!-- 对应简单传统标签的JSP -->
+		
+		<attribute>
+			<name>test</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+    </tag>
+    
+    
+    <tag>
+    	<name>choose</name>  
+		<tag-class>cn.itcast.web.tag.ChooseTag</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+    
+    <tag>
+    	<name>when</name>  
+		<tag-class>cn.itcast.web.tag.WhenTag</tag-class>
+		<body-content>scriptless</body-content>
+		
+		<attribute>
+			<name>test</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+    </tag>
+    
+    <tag>
+    	<name>otherwise</name>  
+		<tag-class>cn.itcast.web.tag.OtherwiseTag</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+    
+    
+    
+    <tag>
+    	<name>foreach</name>  
+		<tag-class>cn.itcast.web.tag.ForEachTag</tag-class>
+		<body-content>scriptless</body-content>
+		
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>items</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+    </tag>
+    
+    
+    <tag>
+    	<name>foreach2</name>  
+		<tag-class>cn.itcast.web.tag.ForEachTag2</tag-class>
+		<body-content>scriptless</body-content>
+		
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>items</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+    </tag>
+    
+    <tag>
+    	<name>htmlFilter</name>  
+		<tag-class>cn.itcast.web.tag.HtmlFilter</tag-class>
+		<body-content>scriptless</body-content>
+    </tag>
+
+    
+    
+</taglib>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>A tag library exercising SimpleTag handlers.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>fn</short-name>
+    <uri>/itcast</uri>
+
+    <function>
+        <name>filter</name>
+        <function-class>cn.itcast.myel.HtmlFilter</function-class>
+        <function-signature>java.lang.String filter(java.lang.String,int[])</function-signature>
+    </function>            <!-- 指定方法的返回值，参数列表 -->
+
+    <function>
+        <name>add</name>
+        <function-class>cn.itcast.myel.MyEL</function-class>
+        <function-signature>java.lang.String add( java.lang.String,java.lang.String )</function-signature>
+    </function>
+
+    <function>
+        <name>test</name>
+        <function-class>cn.itcast.myel.TestEL</function-class>
+        <function-signature>java.lang.String test( java.lang.String,java.lang.Integer )</function-signature>
+    </function>
+
+</taglib>
