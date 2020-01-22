@@ -1,0 +1,43 @@
+maven 
+https://oss.sonatype.org     huahua    Lll@yhh900201
+
+
+
+1、配置JDK
+//解压文件到指定目录
+[root@localhost soft]# tar -zxvf jdk-8u111-linux-x64.tar.gz -C /usr/local/java/
+//配置环境变量
+[root@localhost soft]# vim /etc/profile
+添加环境变量 
+JAVA_HOME=/usr/local/java/jdk1.8.0_111
+PATH=$JAVA_HOME:$PATH
+export JAVA_HOME  .........
+
+//让配置立即生效使用source命令
+[root@localhost soft]# source /etc/profile
+
+2、配置tomcat
+解压到指定目录
+[root@localhost soft]# tar -zxvf apache-tomcat-8.5.6.tar.gz -C /usr/local/
+为了方便吧改下tomcat的名字
+[root@localhost local]# mv apache-tomcat-8.5.6/ tomcat8
+启动tomcat服务
+[root@localhost local]# sh tomcat8/bin/startup.sh
+
+访问tomcat   看到200即成功了
+[root@localhost local]# wget http://localhost:8080
+
+service iptables restart 重启防火墙
+
+./configure \
+--prefix=/usr/local/nginx \
+--pid-path=/var/run/nginx/nginx.pid \
+--lock-path=/var/lock/nginx.lock \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--with-http_gzip_static_module \
+--http-client-body-temp-path=/var/temp/nginx/client \
+--http-proxy-temp-path=/var/temp/nginx/proxy \
+--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
+--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
+--http-scgi-temp-path=/var/temp/nginx/scgi

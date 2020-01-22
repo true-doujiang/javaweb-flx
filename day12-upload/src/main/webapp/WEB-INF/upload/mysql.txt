@@ -1,0 +1,243 @@
+
+
+-- ==============gaoxingnengmysql======================
+
+SELECT * from t2 WHERE age >20 and (address='提提' or address='dd');
+-- GROUP BY col1, col2    select col1, col2, col3 此时col2列的值不是准确的
+SELECT *,max(salary) maxsalary from staff GROUP BY dept,name;
+-- having是对group by 没去重之前的筛选
+SELECT *,max(salary) maxsalary from staff GROUP BY dept having maxsalary > 2500;
+SELECT *,max(salary) maxsalary from staff GROUP BY dept having max(salary) > 2500;
+
+SELECT * from staff WHERE hiredate >= '2010-10-01';
+SELECT *,max(salary) maxsalary from staff WHERE hiredate >= '2010-10-01' GROUP BY dept having maxsalary > 2500;
+SELECT *,max(salary) maxsalary from staff WHERE hiredate >= '2010-10-01' GROUP BY dept having maxsalary > 2500 limit 1;
+
+
+SELECT dept,max(salary) maxsalary from staff GROUP BY dept having maxsalary > 2500 ORDER BY maxsalary desc;
+
+SELECT * from staff WHERE id >= 2 OR id >=4;
+SELECT * from staff WHERE id >= 2 && id <=6;
+
+SELECT 2 <=> 2;
+
+SELECT * from staff where name regexp '赵';
+
+
+
+
+SELECT avg(scgrade) from score; -- 所有课程的平均分
+SELECT sc.cno, c.cname, avg(sc.scgrade) from score sc,course c  group by cno; -- 也可以，但是我觉得应该用下面的sql
+SELECT sc.cno, c.cname, avg(sc.scgrade) from score sc,course c  WHERE sc.cno = c.cno group by cno;
+SELECT * from score sc, course c  WHERE sc.cno = c.cno; -- 以上是对这个结果进行分组 求平均分
+
+-- 选出何昊老师所授课程的女生
+-- 方法一 ( where这种方式  当何昊要是授多门课程 则可能出现重复人名)
+SELECT * from student s ,score sc,course c where s.sno = sc.sno and sc.cno = c.cno and s.sex = 1 and c.cteacher = '何昊'; 
+-- 方法二
+SELECT * from student s WHERE EXISTS (
+	SELECT * from score sc, course c where sc.cno = c.cno and s.sex = 1 and c.cteacher = '何昊' and s.sno = sc.sno
+)
+-- 方法三
+SELECT * from student s WHERE sno in (
+	SELECT sno from score sc, course c where sc.cno = c.cno  and c.cteacher = '何昊' 
+) and s.sex = 1
+
+
+-- 查询没有选修何昊老师课程的所有学生
+-- 方法一
+SELECT * from student s WHERE NOT EXISTS (
+	SELECT * from score sc, course c where sc.cno = c.cno and c.cteacher = '何昊' and s.sno = sc.sno
+);
+-- 方法二 (这个方法不行)  
+-- (如果一个学生既选了何昊的课 又选了其它老师的课  则会出现结果集里)
+-- (如果有个学生一个课都没选 则不会出现在结果集里)  所以还是只能用方法一、三
+SELECT * from student s, score sc, course c where s.sno = sc.sno and sc.cno = c.cno and c.cteacher != '何昊'; 
+
+-- 方法三
+SELECT * from student s WHERE sno not in (
+	SELECT sno from score sc, course c where sc.cno = c.cno  and c.cteacher = '何昊' 
+)
+
+-- ==================俩门及以上不及格（小于60）的学生的姓名、平均成绩 ======================开始==========
+SELECT * from score GROUP BY sno, cno HAVING scgrade <60;
+SELECT * from score WHERE scgrade < 60 GROUP BY sno HAVING COUNT(DISTINCT cno) >= 2;
+
+SELECT s.sno, s.sname, sc.scgrade from student s, score sc, (
+	SELECT sno from score WHERE scgrade < 60 GROUP BY sno HAVING COUNT(DISTINCT cno) >= 2
+) a WHERE s.sno=sc.sno and s.sno=a.sno;
+
+
+SELECT s.sno, s.sname, avg(sc.scgrade) '平均分' from student s, score sc, (
+	SELECT sno from score WHERE scgrade < 60 GROUP BY sno HAVING COUNT(DISTINCT cno) >= 2
+) a WHERE s.sno=sc.sno and s.sno=a.sno;
+
+-- 最终
+SELECT s.sno, s.sname, avg(sc.scgrade) '平均分' from student s, score sc, (
+	SELECT sno from score WHERE scgrade < 60 GROUP BY sno HAVING COUNT(DISTINCT cno) >= 2
+) a WHERE s.sno=sc.sno and s.sno=a.sno 
+GROUP BY s.sno, s.sname;
+
+-- ==================俩门及以上不及格（小于60）的学生的姓名、平均成绩 ======================结束==========
+
+
+
+-- ==================查询既学过 1课程 又学过2课程的所有学生 ======================开始==========
+-- 俩种方法  下面一个是我的
+SELECT * from score sc, course c WHERE sc.cno=c.cno;
+SELECT * from student s, score sc where s.sno=sc.sno;
+--
+SELECT * from score sc, course c WHERE sc.cno=c.cno and c.cno in (1, 2);
+SELECT * from student s, score sc where s.sno=sc.sno and sc.cno in (1, 2);
+--
+SELECT * from score sc, course c WHERE sc.cno=c.cno and c.cno in (1, 2) GROUP BY sc.sno HAVING COUNT(DISTINCT sc.cno)=2;
+SELECT * from student s, score sc where s.sno=sc.sno and sc.cno in (1, 2) GROUP BY s.sno HAVING COUNT(DISTINCT sc.cno)=2;
+--
+SELECT s.* from student s, (
+	SELECT sc.* from score sc, course c WHERE sc.cno=c.cno and c.cno in (1, 2) GROUP BY sc.sno HAVING COUNT(DISTINCT sc.cno)=2
+) temp WHERE s.sno=temp.sno;
+
+SELECT s.* from student s, score sc where s.sno=sc.sno and sc.cno in (1, 2) GROUP BY s.sno HAVING COUNT(DISTINCT sc.cno)=2
+
+-- ==================查询既学过 1课程 又学过2课程的所有学生 ======================结束==========
+
+
+
+
+-- exists https://www.cnblogs.com/beijingstruggle/p/5885137.html  
+-- 
+SELECT * from student WHERE EXISTS(SELECT 1);
+SELECT s.* from student s where EXISTS (SELECT * from score sc WHERE sc.sno = s.sno);
+
+SELECT * from score,course;
+
+desc SELECT * from t2 WHERE id != 1;
+desc SELECT * from t2 WHERE id not in(1,2,3,4,5,6,7,8,9,11);
+
+
+-- ====================gaoxingnengmysql 1======================
+
+-- 查询每个学生的 每门课程与每门成绩
+SELECT
+	st.stuid ID, st.stunm 姓名,
+	c.coursenm 课程名,
+	sc.scores 成绩
+FROM
+	student st, score sc, courses c
+WHERE
+	st.stuid = sc.stuid AND sc.courseno = c.courseno
+
+-- 静态行专列
+select st.stuid 编号, st.stunm 姓名 ,
+	max(
+		CASE c.coursenm
+		WHEN '大学语文' THEN
+			s.scores
+		ELSE
+			0
+		END
+	) '大学语文',
+	max(case c.coursenm when '新视野英语' then IFNULL(s.scores,0)else 0 end) '新视野英语',
+	max(case c.coursenm when '离散数学' then IFNULL(s.scores,0) ELSE 0 END) '离散数学',
+	max(case c.coursenm when '概率论与数理统计' then IFNULL(s.scores,0) else 0 end) '概率论与数理统计',
+	max(case c.coursenm  when '线性代数' then IFNULL(s.scores,0) else 0 END) '线性代数',
+	max(case c.coursenm when '高等数学(一)' THEN IFNULL(s.scores,0) else 0 end) '高等数学(一)',
+	max(case c.coursenm when '高等数学(二)' THEN IFNULL(s.scores,0) else 0 end) '高等数学(二)'
+from  student st 
+	LEFT JOIN score s on st.stuid = s.stuid
+	LEFT JOIN courses c on c.courseno = s.courseno
+GROUP BY st.stuid
+-- =========以上为https://blog.csdn.net/sinat_27406925/article/details/77507478  例子  ===================
+
+
+SELECT
+	s.*, sc.*, c.*
+FROM
+	student s
+LEFT JOIN score sc  ON s.stuid = sc.stuid
+LEFT JOIN courses c ON c.courseno = sc.courseno
+GROUP BY s.stunm;
+
+-- ========为什么要加聚合函数 https://blog.csdn.net/u014180504/article/details/79150492
+SELECT
+	s.*, 
+	-- sc.*, 
+  -- c.*,
+	max(CASE c.coursenm WHEN '大学语文'  	THEN IFNULL(sc.scores,0) ELSE 0 END) '大学语文',
+	max(CASE c.coursenm WHEN '新视野英语' THEN IFNULL(sc.scores,0) ELSE 0 END) '新视野英语',
+	max(CASE c.coursenm WHEN '离散数学'  	THEN IFNULL(sc.scores,0) ELSE 0 END) '离散数学',
+	max(CASE c.coursenm WHEN '概率论与数理统计' THEN IFNULL(sc.scores,0) ELSE 0 END) '概率论与数理统计',
+	max(CASE c.coursenm WHEN '线性代数'  	THEN IFNULL(sc.scores,0) ELSE 0 END) '线性代数',
+	max(case c.coursenm when '高等数学(一)' THEN IFNULL(sc.scores,0) ELSE 0 END) '高等数学(一)',
+	max(case c.coursenm when '高等数学(二)' THEN IFNULL(sc.scores,0) ELSE 0 END) '高等数学(二)'
+FROM
+	student s
+LEFT JOIN score sc  ON s.stuid = sc.stuid
+LEFT JOIN courses c ON c.courseno = sc.courseno
+GROUP BY s.stunm 
+-- ORDER BY s.stuid;
+
+
+-- 再来看看group_concat() 这个函数
+/**
+group_concat()，手册上说明:该函数返回带有来自一个组的连接的非NULL值的字符串结果。 
+
+通俗点理解，其实是这样的：group_concat()会计算哪些行属于同一组，将属于同一组的列显示出来。
+要返回哪些列，由函数参数(就是字段名)决定。
+分组必须有个标准，就是根据group by指定的列进行分组。
+*/
+select s.stuid, GROUP_CONCAT(courseno) 课程号, GROUP_CONCAT(s.scores) 成绩 from score s GROUP BY s.stuid
+
+
+=================================================开始
+show index from products1;
+create index ix_actor on products(actor);
+create index ix_actor_title on products(actor,title);
+
+explain SELECT actor from products WHERE actor ='a' and title like '%a%';
+
+EXPLAIN
+SELECT * from products JOIN (
+	SELECT pro_id from products WHERE actor ='a' and title like '%a%'
+) temp ON temp.pro_id = products.pro_id;
+
+EXPLAIN
+SELECT * from products1 JOIN (
+	SELECT pro_id from products1 WHERE actor ='a' and title like '%a%'
+) temp ON temp.pro_id = products1.pro_id;
+
+=================================================结束
+
+===============================================================
+mysql存储过程中使用事务     https://www.cnblogs.com/thingk/p/3911668.html
+
+
+create procedure pro10()
+begin
+   declare i int;
+    set i=0;
+		START TRANSACTION;  
+    while i<1000000 do
+         INSERT INTO `hpa_normal_tissue` VALUES (null,i, 'adipocytes', '我是mysql大神', 'Staining', 'Supportive');
+         set i=i+1;
+     end while;
+		COMMIT;
+ end;
+
+call pro10();
+
+
+SELECT * from hpa_normal_tissue LIMIT 2019820,20; 
+SELECT id from hpa_normal_tissue LIMIT 2019820,20;
+EXPLAIN SELECT id from hpa_normal_tissue LIMIT 2019820,20;
+
+SELECT h.* FROM hpa_normal_tissue h JOIN (
+	SELECT id from hpa_normal_tissue LIMIT 2019820,20
+) temp USING(id);
+ON h.id=temp.id;
+
+ SELECT * FROM hpa_normal_tissue h WHERE id >=(
+	SELECT id from hpa_normal_tissue LIMIT 2019820,1
+);
+ 
+
