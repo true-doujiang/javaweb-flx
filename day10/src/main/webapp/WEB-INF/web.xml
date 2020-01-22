@@ -1,7 +1,71 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<web-app version="2.5"-->
+<!--xmlns="http://java.sun.com/xml/ns/javaee"-->
+<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee -->
+<!--http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">-->
+
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>ListBookServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.ListBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuyServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.BuyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClearCartServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.ClearCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <servlet-class>cn.itcast.web.controller.UpdateCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListCardUIServlet</servlet-name>
+        <servlet-class>cn.itcast.web.ui.ListCardUIServlet</servlet-class>
+    </servlet>
+
+
+    <!-- mapping -->
+
+    <servlet-mapping>
+        <servlet-name>ListBookServlet</servlet-name>
+        <url-pattern>/servlet/ListBookServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuyServlet</servlet-name>
+        <url-pattern>/servlet/BuyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/servlet/DeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClearCartServlet</servlet-name>
+        <url-pattern>/servlet/ClearCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <url-pattern>/servlet/UpdateCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListCardUIServlet</servlet-name>
+        <url-pattern>/servlet/ListCardUIServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
